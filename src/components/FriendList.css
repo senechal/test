@@ -2,3 +2,35 @@
   padding-left: 0;
   margin-bottom: 0;
 }
+
+:local(.pageList) {
+  display: flex;
+  list-style-type: none;
+  margin: 0;
+  padding: 0;
+}
+
+
+
+:local(.pageNumber) {
+  width: 20px;
+  height: 20px;
+  color: #717171;;
+  background-color: #fff;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-size: 12px;
+  margin: 1px 0px 1px 1px;
+  cursor: pointer;
+}
+:local(.pageNumber):hover{
+  background-color: #bcc7e0
+
+}
+
+:local(.currentPage){
+  color: #fff;
+  background-color: #5C75B0;
+  cursor: unset;
+}
