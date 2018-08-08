@@ -6,15 +6,52 @@ import styles from './AddFriendInput.css';
 class AddFriendInput extends Component {
 
   render () {
+    const {name, sex, error } = this.state;
     return (
-      <input
-        type="text"
-        autoFocus="true"
-        className={classnames('form-control', styles.addFriendInput)}
-        placeholder="Type the name of a friend"
-        value={this.state.name}
-        onChange={this.handleChange.bind(this)}
-        onKeyDown={this.handleSubmit.bind(this)} />
+      <div className={classnames('form-group', styles.inputBlock, { 'has-error': error})}>
+        <input
+          type="text"
+          autoFocus="true"
+          className={classnames('form-control', styles.addFriendInput)}
+          placeholder="Type the name of a friend"
+          value={name}
+          onChange={this.handleNameChange}
+          onKeyDown={this.handleSubmit} />
+        <div className={styles.sexSelection}>
+          <div className="radio-inline">
+            <label>
+              <input
+                type="radio"
+                name="sexRadios"
+                value="male"
+                onChange={this.handleSexChange}
+                onKeyDown={this.handleSubmit}
+                checked={sex==='male'}
+              />
+              Male
+            </label>
+          </div>
+          <div className="radio-inline">
+            <label>
+              <input
+              type="radio"
+              name="sexRadios"
+              value="female"
+              onChange={this.handleSexChange}
+              onKeyDown={this.handleSubmit}
+              checked={sex==='female'}
+            />
+              Female
+            </label>
+          </div>
+          {
+            error
+              ? <span id="helpBlock2" className="help-block">Must select the sex of your friend.</span>
+              : null
+          }
+
+        </div>
+      </div>
     );
   }
 
@@ -22,18 +59,28 @@ class AddFriendInput extends Component {
     super(props, context);
     this.state = {
       name: this.props.name || '',
+      sex: this.props.sex || '',
+      error: false,
     };
   }
 
-  handleChange (e) {
+  handleNameChange = (e) => {
     this.setState({ name: e.target.value });
   }
+  handleSexChange = (e) => {
+    this.setState({ sex: e.target.value });
+  }
 
-  handleSubmit (e) {
-    const name = e.target.value.trim();
+  handleSubmit = (e) => {
+    const {name, sex} = this.state;
     if (e.which === 13) {
-      this.props.addFriend(name);
-      this.setState({ name: '' });
+      if(sex.length === 0){
+        this.setState({error: true});
+      } else {
+        this.props.addFriend(name.trim(), sex.trim());
+        this.setState({ name: '', sex: '', error: false});
+      }
+
     }
   }
 

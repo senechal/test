@@ -3,4 +3,23 @@
   border-color: #ABAAAA;
   border-left: 0;
   border-right: 0;
+  display: inline-block;
+}
+
+
+
+:local(.inputBlock){
+  display: flex;
+  flex-direction: column;
+  background-color: #fff;
+}
+
+
+:local(.sexSelection){
+  padding: 10px 10px 8px 10px;
+  border-bottom: 1px solid #E3E3E3;
+}
+
+:global(.form-group){
+  margin-bottom: 0px;
 }

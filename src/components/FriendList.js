@@ -1,4 +1,5 @@
 import React, { Fragment, Component } from 'react';
+import classnames from 'classnames';
 import PropTypes from 'prop-types';
 import styles from './FriendList.css';
 import FriendListItem from './FriendListItem';
@@ -20,7 +21,7 @@ class FriendList extends Component {
       <li
         onClick={() => {this.handlePageChange(value)}}
         key={value}
-        className={[styles.pageNumber, index === page ? styles.currentPage : ''].join(' ')}>
+        className={classnames(styles.pageNumber, {[styles.currentPage] : index === page})}>
           {value+1}
         </li>
     ))
@@ -29,13 +30,14 @@ class FriendList extends Component {
       <Fragment>
       <ul className={styles.friendList}>
         {
-          friends.slice(page, pageSize).map((friend, index) => {
+          friends.slice(page*pageSize, page*pageSize+pageSize).map((friend, index) => {
             return (
               <FriendListItem
                 key={index}
                 id={index}
                 name={friend.name}
                 starred={friend.starred}
+                sex={friend.sex}
                 {...this.props.actions} />
             );
           })

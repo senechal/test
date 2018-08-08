@@ -26,3 +26,15 @@
 button:focus {
   outline: 0 !important;
 }
+
+:local(.sexIcon){
+  margin-left: 5px;
+  font-weight: bold;
+}
+
+:global(.fa-mars){
+  color: #50a5dc;
+}
+:global(.fa-venus){
+  color: #ff7bac;
+}
