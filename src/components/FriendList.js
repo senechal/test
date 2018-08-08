@@ -41,9 +41,16 @@ class FriendList extends Component {
           })
         }
       </ul>
-      <ul className={styles.pageList}>
-        {pages}
-      </ul>
+      {
+        friends.length > pageSize
+        ? (
+          <ul className={styles.pageList}>
+            {pages}
+          </ul>
+          )
+        : null
+      }
+
       </Fragment>
     );
   }
