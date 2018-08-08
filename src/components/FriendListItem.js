@@ -9,7 +9,20 @@ class FriendListItem extends Component {
     return (
       <li className={styles.friendListItem}>
         <div className={styles.friendInfos}>
-          <div><span>{this.props.name}</span></div>
+          <div>
+            <span>{this.props.name}</span>
+            <i
+              title={this.props.sex === 'male' ? 'Male' : 'female'}
+              className={classnames(
+                styles.sexIcon,
+                'fa',
+                {
+                  'fa-mars': this.props.sex === 'male',
+                  'fa-venus': this.props.sex === 'female',
+                }
+              )}
+            />
+          </div>
           <div>
             <small>xx friends in common</small>
           </div>
@@ -37,7 +50,8 @@ FriendListItem.propTypes = {
   id: PropTypes.number.isRequired,
   name: PropTypes.string.isRequired,
   starred: PropTypes.bool,
-  starFriend: PropTypes.func.isRequired
+  starFriend: PropTypes.func.isRequired,
+  sex: PropTypes.string.isRequired,
 };
 
 export default FriendListItem
