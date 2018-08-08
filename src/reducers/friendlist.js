@@ -41,11 +41,15 @@ export default function friends(state = initialState, action) {
     case types.STAR_FRIEND:
       let friends = [...state.friendsById];
       let friend = friends.find((item, index) => index === action.id);
-      friend.starred = !friend.starred;
-      return {
-        ...state,
-        friendsById: friends
-      };
+      if (friend){
+        friend.starred = !friend.starred;
+        return {
+          ...state,
+          friendsById: friends
+        };
+      }
+      return state;
+
 
     default:
       return state;

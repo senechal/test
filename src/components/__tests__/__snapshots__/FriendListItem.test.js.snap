@@ -1,0 +1,118 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Tests for FriendListItem should render without crashing 1`] = `
+<li>
+  <div>
+    <div>
+      <span>
+        mock
+      </span>
+      <i
+        className="fa fa-mars"
+        title="Male"
+      />
+    </div>
+    <div>
+      <small>
+        xx friends in common
+      </small>
+    </div>
+  </div>
+  <div>
+    <button
+      className="btn btn-default undefined"
+      onClick={[Function]}
+    >
+      <i
+        className="fa fa-star"
+      />
+    </button>
+    <button
+      className="btn btn-default undefined"
+      onClick={[Function]}
+    >
+      <i
+        className="fa fa-trash"
+      />
+    </button>
+  </div>
+</li>
+`;
+
+exports[`Tests for FriendListItem should render without crashing female 1`] = `
+<li>
+  <div>
+    <div>
+      <span>
+        mock
+      </span>
+      <i
+        className="fa fa-venus"
+        title="female"
+      />
+    </div>
+    <div>
+      <small>
+        xx friends in common
+      </small>
+    </div>
+  </div>
+  <div>
+    <button
+      className="btn btn-default undefined"
+      onClick={[Function]}
+    >
+      <i
+        className="fa fa-star"
+      />
+    </button>
+    <button
+      className="btn btn-default undefined"
+      onClick={[Function]}
+    >
+      <i
+        className="fa fa-trash"
+      />
+    </button>
+  </div>
+</li>
+`;
+
+exports[`Tests for FriendListItem should render without crashing starred 1`] = `
+<li>
+  <div>
+    <div>
+      <span>
+        mock
+      </span>
+      <i
+        className="fa fa-mars"
+        title="Male"
+      />
+    </div>
+    <div>
+      <small>
+        xx friends in common
+      </small>
+    </div>
+  </div>
+  <div>
+    <button
+      className="btn btn-default undefined"
+      onClick={[Function]}
+    >
+      <i
+        className="fa fa-star"
+      />
+    </button>
+    <button
+      className="btn btn-default undefined"
+      onClick={[Function]}
+    >
+      <i
+        className="fa fa-trash"
+      />
+    </button>
+  </div>
+</li>
+`;

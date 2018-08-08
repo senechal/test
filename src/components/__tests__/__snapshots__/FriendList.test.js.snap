@@ -1,0 +1,42 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Tests for FriendList should render without crashing 1`] = `
+<Fragment>
+  <ul>
+    <FriendListItem
+      deleteFriend={[Function]}
+      id={0}
+      key="0"
+      name="mock 1"
+      sex="male"
+      starFriend={[Function]}
+      starred={true}
+    />
+    <FriendListItem
+      deleteFriend={[Function]}
+      id={1}
+      key="1"
+      name="mock 2"
+      sex="female"
+      starFriend={[Function]}
+      starred={false}
+    />
+  </ul>
+  <ul>
+    <li
+      className="undefined"
+      key="0"
+      onClick={[Function]}
+    >
+      1
+    </li>
+    <li
+      className=""
+      key="1"
+      onClick={[Function]}
+    >
+      2
+    </li>
+  </ul>
+</Fragment>
+`;
