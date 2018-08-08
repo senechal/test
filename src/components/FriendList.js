@@ -33,8 +33,8 @@ class FriendList extends Component {
           friends.slice(page*pageSize, page*pageSize+pageSize).map((friend, index) => {
             return (
               <FriendListItem
-                key={index}
-                id={index}
+                key={index+page*pageSize}
+                id={index+page*pageSize}
                 name={friend.name}
                 starred={friend.starred}
                 sex={friend.sex}
