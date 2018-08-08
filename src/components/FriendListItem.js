@@ -51,6 +51,7 @@ FriendListItem.propTypes = {
   name: PropTypes.string.isRequired,
   starred: PropTypes.bool,
   starFriend: PropTypes.func.isRequired,
+  deleteFriend: PropTypes.func.isRequired,
   sex: PropTypes.string.isRequired,
 };
 

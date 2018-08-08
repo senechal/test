@@ -10,6 +10,7 @@ class AddFriendInput extends Component {
     return (
       <div className={classnames('form-group', styles.inputBlock, { 'has-error': error})}>
         <input
+          id="friend_name"
           type="text"
           autoFocus="true"
           className={classnames('form-control', styles.addFriendInput)}
@@ -21,6 +22,7 @@ class AddFriendInput extends Component {
           <div className="radio-inline">
             <label>
               <input
+                id="friend_sex_male"
                 type="radio"
                 name="sexRadios"
                 value="male"
@@ -34,6 +36,7 @@ class AddFriendInput extends Component {
           <div className="radio-inline">
             <label>
               <input
+              id="friend_sex_female"
               type="radio"
               name="sexRadios"
               value="female"

@@ -1,0 +1,109 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Tests for AddFriendInput should change "error" state when a submition try is made without a sex selected 1`] = `
+<div
+  className="form-group has-error"
+>
+  <input
+    autoFocus="true"
+    className="form-control"
+    id="friend_name"
+    onChange={[Function]}
+    onKeyDown={[Function]}
+    placeholder="Type the name of a friend"
+    type="text"
+    value=""
+  />
+  <div>
+    <div
+      className="radio-inline"
+    >
+      <label>
+        <input
+          checked={false}
+          id="friend_sex_male"
+          name="sexRadios"
+          onChange={[Function]}
+          onKeyDown={[Function]}
+          type="radio"
+          value="male"
+        />
+        Male
+      </label>
+    </div>
+    <div
+      className="radio-inline"
+    >
+      <label>
+        <input
+          checked={false}
+          id="friend_sex_female"
+          name="sexRadios"
+          onChange={[Function]}
+          onKeyDown={[Function]}
+          type="radio"
+          value="female"
+        />
+        Female
+      </label>
+    </div>
+    <span
+      className="help-block"
+      id="helpBlock2"
+    >
+      Must select the sex of your friend.
+    </span>
+  </div>
+</div>
+`;
+
+exports[`Tests for AddFriendInput should render without crashing 1`] = `
+<div
+  className="form-group"
+>
+  <input
+    autoFocus="true"
+    className="form-control"
+    id="friend_name"
+    onChange={[Function]}
+    onKeyDown={[Function]}
+    placeholder="Type the name of a friend"
+    type="text"
+    value=""
+  />
+  <div>
+    <div
+      className="radio-inline"
+    >
+      <label>
+        <input
+          checked={false}
+          id="friend_sex_male"
+          name="sexRadios"
+          onChange={[Function]}
+          onKeyDown={[Function]}
+          type="radio"
+          value="male"
+        />
+        Male
+      </label>
+    </div>
+    <div
+      className="radio-inline"
+    >
+      <label>
+        <input
+          checked={false}
+          id="friend_sex_female"
+          name="sexRadios"
+          onChange={[Function]}
+          onKeyDown={[Function]}
+          type="radio"
+          value="female"
+        />
+        Female
+      </label>
+    </div>
+  </div>
+</div>
+`;
