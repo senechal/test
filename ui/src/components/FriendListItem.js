@@ -29,7 +29,7 @@ class FriendListItem extends Component {
         </div>
         <div className={styles.friendActions}>
           <button className={`btn btn-default ${styles.btnAction}`}
-                  onClick={() => this.props.starFriend(this.props.id)}>
+                  onClick={() => this.props.starFriend(this.props.id, !this.props.starred)}>
             <i className={classnames('fa', {
               'fa-star': this.props.starred,
               'fa-star-o': !this.props.starred
@@ -47,7 +47,7 @@ class FriendListItem extends Component {
 }
 
 FriendListItem.propTypes = {
-  id: PropTypes.number.isRequired,
+  id: PropTypes.string.isRequired,
   name: PropTypes.string.isRequired,
   starred: PropTypes.bool,
   starFriend: PropTypes.func.isRequired,

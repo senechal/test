@@ -34,7 +34,7 @@ class FriendList extends Component {
             return (
               <FriendListItem
                 key={index+page*pageSize}
-                id={index+page*pageSize}
+                id={friend._id}
                 name={friend.name}
                 starred={friend.starred}
                 sex={friend.sex}

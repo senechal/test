@@ -1,10 +1,32 @@
-# Usage
 
+# Usage (Dev environment)
+
+##Requirements
+[MongoDb] (https://www.digitalocean.com/community/tutorials/how-to-install-mongodb-on-ubuntu-18-04)
+
+## ui
 ```
+cd ui
 yarn install
 yarn start
 open http://localhost:3000
 ```
+
+## server
+```
+cd server
+yarn install
+yarn start
+open http://localhost:3001
+```
+
+# Docker
+Make shure you have the latest verions of Docker-ce and docker-compose.
+
+To run the project in the background.
+
+```docker-compose up -d```
+
 # Test
 
 ```
