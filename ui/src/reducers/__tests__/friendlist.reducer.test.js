@@ -2,80 +2,94 @@ import * as types from '../../constants/ActionTypes';
 import reducer from '../friendlist';
 
 const initialState = {
-  friendsById: [
-    {
-      name: 'Theodore Roosevelt',
-      starred: true,
-      sex: 'male',
-    },
-    {
-      name: 'Abraham Lincoln',
-      starred: false,
-      sex: 'male',
-    },
-    {
-      name: 'George Washington',
-      starred: false,
-      sex: 'male',
-    }
-  ]
+  loading: false,
+  friendsById: []
 };
 
 describe('Tests for Friend List Reducer', () => {
   it('it should return current state by default', () => {
     expect(reducer(undefined, {})).toEqual(initialState);
   });
-  it(`should handle ${types.ADD_FRIEND} action`, () => {
+  it(`should handle ${types.DELETE_FRIEND}_PENDING`, () => {
     const action = {
-      type: types.ADD_FRIEND,
-      name: 'name',
-      sex: 'sex'
+      type: `${types.DELETE_FRIEND}_PENDING`
     };
-    const newState = { friendsById: [...initialState.friendsById, {name: 'name', sex: 'sex'}] }
+    const newState = { ...initialState, loading: true }
     expect(reducer(initialState, action)).toEqual(newState);
   });
-  it(`should handle ${types.DELETE_FRIEND} action with existing id(index)`, () => {
+  it(`should handle ${types.STAR_FRIEND}_PENDING`, () => {
     const action = {
-      type: types.DELETE_FRIEND,
-      id: 1,
+      type: `${types.STAR_FRIEND}_PENDING`
+    };
+    const newState = { ...initialState, loading: true }
+    expect(reducer(initialState, action)).toEqual(newState);
+  });
+  it(`should handle ${types.ADD_FRIEND}_PENDING`, () => {
+    const action = {
+      type: `${types.ADD_FRIEND}_PENDING`
+    };
+    const newState = { ...initialState, loading: true }
+    expect(reducer(initialState, action)).toEqual(newState);
+  });
+  it(`should handle ${types.GET_FRIENDS}_PENDING`, () => {
+    const action = {
+      type: `${types.GET_FRIENDS}_PENDING`
+    };
+    const newState = { ...initialState, loading: true }
+    expect(reducer(initialState, action)).toEqual(newState);
+  });
+  it(`should handle ${types.DELETE_FRIEND}_FULFILLED`, () => {
+    const action = {
+      type: `${types.DELETE_FRIEND}_FULFILLED`,
+      payload: {
+        data: 'mock',
+      },
     };
     const newState = {
-      friendsById: [
-        {
-          name: 'Theodore Roosevelt',
-          starred: true,
-          sex: 'male',
-        },
-        {
-          name: 'George Washington',
-          starred: false,
-          sex: 'male',
-        }
-      ]
+      loading: false,
+      friendsById: 'mock',
+
     }
-    expect(reducer(initialState, action)).toEqual(newState);
+    expect(reducer({ ...initialState, loading: true}, action)).toEqual(newState);
   });
-  it(`should handle ${types.DELETE_FRIEND} action with missing id`, () => {
+  it(`should handle ${types.STAR_FRIEND}_FULFILLED`, () => {
     const action = {
-      type: types.DELETE_FRIEND,
-      id: 5,
+      type: `${types.STAR_FRIEND}_FULFILLED`,
+      payload: {
+        data: 'mock',
+      },
     };
-    expect(reducer(initialState, action)).toEqual(initialState);
+    const newState = {
+      loading: false,
+      friendsById: 'mock',
+    }
+    expect(reducer({ ...initialState, loading: true}, action)).toEqual(newState);
   });
-  it(`should handle ${types.STAR_FRIEND} action with existing id(index)`, () => {
+  it(`should handle ${types.ADD_FRIEND}_FULFILLED`, () => {
     const action = {
-      type: types.STAR_FRIEND,
-      id: 1,
+      type: `${types.ADD_FRIEND}_FULFILLED`,
+      payload: {
+        data: 'mock',
+      },
     };
-    const newState = initialState;
-    newState.friendsById[1].starred = !newState.friendsById[1].starred;
-    expect(reducer(initialState, action)).toEqual(newState);
+    const newState = {
+      loading: false,
+      friendsById: 'mock',
+    }
+    expect(reducer({ ...initialState, loading: true}, action)).toEqual(newState);
   });
-  it(`should handle ${types.STAR_FRIEND} action with missing id`, () => {
+  it(`should handle ${types.GET_FRIENDS}_FULFILLED`, () => {
     const action = {
-      type: types.STAR_FRIEND,
-      id: 5,
+      type: `${types.GET_FRIENDS}_FULFILLED`,
+      payload: {
+        data: 'mock',
+      },
     };
-    expect(reducer(initialState, action)).toEqual(initialState);
+    const newState = {
+      loading: false,
+      friendsById: 'mock',
+    }
+    expect(reducer({ ...initialState, loading: true}, action)).toEqual(newState);
   });
+
 });
