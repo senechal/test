@@ -1,0 +1,27 @@
+# Utilizando sintaxe da versão 2.2:
+version: '2.2'
+services:
+    api:
+        build:
+            context: .
+            dockerfile: server/Dockerfile
+        depends_on:
+        - mongo
+        ports:
+        - 3001:3001
+        links:
+        - mongo:database
+        environment:
+            DB_HOST: "mongodb://database:27017/api"
+        container_name: test-api
+    mongo:
+        image: mongo:3.4
+        container_name: test-api-db
+
+    ui:
+        container_name: test-ui
+        build:
+            context: .
+            dockerfile: ui/Dockerfile
+        ports:
+        - 8000:80

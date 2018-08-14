@@ -10,7 +10,7 @@ describe('Tests for FriendListItem', () => {
   let props;
   beforeEach(() => {
     props = {
-      id: 0,
+      id: '0',
       name: 'mock',
       starred: true,
       sex: 'male',
@@ -38,13 +38,13 @@ describe('Tests for FriendListItem', () => {
     const buttons = wrapper.find('button');
     buttons.at(0).simulate('click')
     expect(props.starFriend.called).toBeTruthy();
-    expect(props.starFriend.calledWith(0)).toBeTruthy();
+    expect(props.starFriend.calledWith('0', false)).toBeTruthy();
   });
-  it('should call starFriend on button click', () => {
+  it('should call deleteFriend on button click', () => {
     const wrapper = shallow(<FriendListItem {...props}/>);
     const buttons = wrapper.find('button');
     buttons.at(1).simulate('click')
     expect(props.deleteFriend.called).toBeTruthy();
-    expect(props.deleteFriend.calledWith(0)).toBeTruthy();
+    expect(props.deleteFriend.calledWith('0')).toBeTruthy();
   });
 });
