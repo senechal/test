@@ -11,10 +11,10 @@ describe('Tests for FriendList', () => {
   beforeEach(() => {
     props = {
       friends: [
-        {name: 'mock 1', sex: 'male', starred: true},
-        {name: 'mock 2', sex: 'female', starred: false},
-        {name: 'mock 3', sex: 'male', starred: false},
-        {name: 'mock 4', sex: 'female', starred: false},
+        {_id: '0', name: 'mock 1', sex: 'male', starred: true},
+        {_id: '1', name: 'mock 2', sex: 'female', starred: false},
+        {_id: '2', name: 'mock 3', sex: 'male', starred: false},
+        {_id: '3', name: 'mock 4', sex: 'female', starred: false},
       ],
       actions: {
         starFriend: sinon.spy(),
