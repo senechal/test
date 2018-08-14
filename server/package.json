@@ -4,7 +4,7 @@
   "private": true,
   "main": "index.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1",
+    "test": "jest --watchAll",
     "babel-node": "babel-node --presets=env",
     "start": "nodemon --exec npm run babel-node -- ./server.js",
     "build": "babel src -d dist"
@@ -20,10 +20,11 @@
     ]
   },
   "dependencies": {
+    "babel-polyfill": "^6.26.0",
     "body-parser": "^1.18.1",
     "cors": "^2.8.4",
     "express": "^4.15.4",
-    "mongoose": "^4.11.11"
+    "mongoose": "5.2.7"
   },
   "devDependencies": {
     "babel-cli": "^6.26.0",
@@ -32,6 +33,10 @@
     "eslint": "^4.6.1",
     "eslint-config-airbnb-base": "^12.0.0",
     "eslint-plugin-import": "^2.7.0",
-    "nodemon": "^1.12.0"
+    "jest": "^23.5.0",
+    "nodemon": "^1.12.0",
+    "sinon": "^6.1.5",
+    "sinon-mongoose": "^2.2.1",
+    "supertest": "^3.1.0"
   }
 }

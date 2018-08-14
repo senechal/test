@@ -11,17 +11,16 @@ export const listFriends = (req, res) => {
 
 export const addFriend = (req, res) => {
   const data = req.body;
-  const friend = new Friend(data);
-  friend.save(err => {
+  Friend.create(data, (err, ...args) => {
     if (err) res.status(500).send(err);
     listFriends(req, res);
-  });
+  })
 
 }
 
 export const getFriend = (req, res) => {
   const { id } = req.params;
-  Bear.findById(id, (err, friend) => {
+  Friend.findById(id, (err, friend) => {
     if (err)
       res.status(404).send(err);
     res.json(friend);
@@ -31,16 +30,11 @@ export const getFriend = (req, res) => {
 export const updateFriend = (req, res) => {
   const { id } = req.params;
   const data = req.body;
-  console.log(data);
-  Friend.findById(id, (err, friend) => {
-    if (err)
-      res.status(404).send(err);
-    friend = Object.assign(friend, data);
-    friend.save(err => {
-      if (err) res.status(500).send(err);
-      listFriends(req, res);
-    });
-  });
+  Friend.update({_id: id}, {$set: data}, err => {
+    if (err) res.status(500).send(err);
+    listFriends(req, res);
+  })
+
 }
 
 export const deleteFriend = (req, res) => {
